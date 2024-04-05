@@ -1,4 +1,4 @@
-const mongoose = require('./db.js');
+const mongoose = require('./db');
 
 const userEvent = mongoose.Schema({
   name: String,
@@ -9,4 +9,14 @@ const userEvent = mongoose.Schema({
 
 const userEventModel = mongoose.model('user_events', userEvent);
 
-module.exports = { userEventModel }
+const user = mongoose.Schema({
+  firstName: String,
+  lastName: String,
+  orgAffiliation: String,
+  email: String,
+  password: String,
+})
+
+const userModel = mongoose.model('user', user);
+
+module.exports = { userEventModel, userModel }

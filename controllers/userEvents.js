@@ -36,17 +36,18 @@ router.post('/create',
   async (req, res) => {
     let errors = [];
     if (req.file == null) {
-      errors.push('No file found.');
+      errors.push('NULL_FILE');
     }
     // TODO: Validate ownerId
     if (req.body.owner_id == null) {
-      errors.push('Invalid owner ID');
+      errors.push('NULL_OWNER_ID');
     }
     if (req.body.name == null) {
-      errors.push('You cannot leave the event name blank.');
+      errors.push('NULL_EVENT_NAME');
     }
+    // TODO: Validate id key existence
     if (req.body.id_key == null) {
-      errors.push('You must select the field name for your participant IDs.');
+      errors.push('NULL_ID_KEY');
     }
 
     if (errors.length > 0)
