@@ -9,8 +9,17 @@ const { userAuth } = require('../middleware/userAuth');
 
 const upload = multer({ dest: 'tmp/csv/' });
 
+router.get('/', async (req, res) => {
+  const event = await userEventModel.findOne({ id: req.body.eventid }).exec();
+
+  if (event == undefined)
+    return res.send({ status: 'error', error: 'Event ID does not exist or is not found.' });
+
+  return res.send({ status: 'success', event: event });
+})
+
 router.get('/checkin/:event_id/:user_id', userAuth, async (req, res) => {
-  const event = await userEventModel.findOne({ _id: req.params.event_id }).exec();
+  const event = await userEventModel.findOne({ id: req.params.event_id }).exec();
   if (event == null)
     return res.send({ error: 'Invalid event.' });
 
