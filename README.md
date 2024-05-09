@@ -1,5 +1,5 @@
 # GALZify
-<img src='https://img.shields.io/badge/DLSU-ORGLIFE-100000?style=for-the-badge&logoColor=white&labelColor=00703C&color=333333'/>  <img alt='' src='https://img.shields.io/badge/DLSU-CCS-100000?style=for-the-badge&logo=&logoColor=white&labelColor=00703C&color=333333'/>  <img alt='' src='https://img.shields.io/badge/LSCS-zel-100000?style=for-the-badge&logo=&logoColor=white&labelColor=01087D&color=001DCB'/>
+<img src='https://img.shields.io/badge/DLSU-ORGLIFE-100000?style=for-the-badge&logoColor=white&labelColor=00703C&color=333333'/>  <img alt='' src='https://img.shields.io/badge/DLSU-CCS-100000?style=for-the-badge&logo=&logoColor=white&labelColor=00703C&color=333333'/>  <img alt='' src='https://img.shields.io/badge/LSCS-RND-100000?style=for-the-badge&logo=&logoColor=white&labelColor=01087D&color=001DCB'/>
 ## For organization leads, non-tech people
 This solution was designed to make it easier for DLSU organizations to handle their General Attendance Log Sheet (GALS) Forms during in-person events, aimed to make participant attendance processing more seamless.
 
