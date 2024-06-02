@@ -17,6 +17,9 @@ app.use(session({
   }
 }));
 
+const users = require('./controllers/user')
+app.use('/users', users);
+
 const userEvents = require('./controllers/userEvents')
 app.use('/event', userEvents);
 
