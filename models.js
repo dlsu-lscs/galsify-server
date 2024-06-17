@@ -19,4 +19,15 @@ const user = mongoose.Schema({
 
 const userModel = mongoose.model('user', user);
 
-module.exports = { userEventModel, userModel }
+const organization = mongoose.Schema({
+  name: String,
+  key: String,
+  type: String,
+  description: String,
+  founding_date: String,
+  enabled: Boolean
+})
+
+const orgModel = mongoose.model('orgs', organization);
+
+module.exports = { userEventModel, userModel, orgModel }
