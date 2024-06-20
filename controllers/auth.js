@@ -6,23 +6,29 @@ const { userModel } = require('../models');
 const userAuth = require('../middleware/userAuth');
 
 router.post('/login', async (req, res) => {
-  if (req.body.username == null || req.body.password == null)
-    return res.send({ status: 'error', error: 'Your username or password cannot be empty.' });
+  // assume that all requests are sent through axios
+  req.body = req.body.data
 
-  const loginData = await userModel.findOne({ email: req.body.username }).exec();
+  if (req.body.email == null || req.body.password == null)
+    return res.send({ status: 'error', errors: ['Your email or password cannot be empty.'] });
+
+  const loginData = await userModel.findOne({ email: req.body.email }).exec();
 
   if (loginData == undefined)
-    return res.send({ status: 'error', error: 'Username not found. Please try again.' });
+    return res.send({ status: 'error', errors: ['Email not found. Please try again.'] });
 
   const passwordMatch = await bcrypt.compare(req.body.password, loginData.password);
 
-  if (!passwordMatch) return res.send({ status: 'error', error: 'Incorrect password. Please try again.' });
+  if (!passwordMatch) return res.send({ status: 'error', errors: ['Incorrect password. Please try again.'] });
 
   const token = jwt.sign({ user_id: loginData._id }, process.env.SECRET_KEY, { expiresIn: '1h' });
   return res.send({ status: 'success', token: token });
 });
 
 router.post('/signup', async (req, res) => {
+  // assume all requests are sent through axios
+  req.body = req.body.data
+
   let errors = [];
 
   if (req.body.email == null) errors.push('NULL_EMAIL')
