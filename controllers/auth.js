@@ -6,9 +6,6 @@ const { userModel } = require('../models');
 const userAuth = require('../middleware/userAuth');
 
 router.post('/login', async (req, res) => {
-  // assume that all requests are sent through axios
-  req.body = req.body.data
-
   if (req.body.email == null || req.body.password == null)
     return res.send({ status: 'error', errors: ['Your email or password cannot be empty.'] });
 
@@ -26,9 +23,6 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/signup', async (req, res) => {
-  // assume all requests are sent through axios
-  req.body = req.body.data
-
   let errors = [];
 
   if (req.body.email == null) errors.push('NULL_EMAIL')
